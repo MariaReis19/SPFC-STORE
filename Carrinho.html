@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>Carrinho de Compras</title>
+        <style>
+            html, body{margin: 0;
+           padding: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 40px 15px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #FF0000;
+}
+
+.active {
+  background-color: #FF0000;
+}
+th, td {
+  border-style: none;
+}
+body {background-color: white;}
+
+.button {
+  background-color: black; 
+  color: white; 
+  border: 2px solid #000000;
+  padding: 10px 12px;
+}
+.button:hover {
+  background-color: #f44336;
+  color: white;
+  border: 2px solid #f44336;
+  padding: 10px 12px;
+}
+
+        
+
+#corpo {
+       background-color: #F5FFFA;
+       
+       padding: 10px;
+       
+       }
+ 
+#cabecalho {
+       background-color: #333;
+       
+       padding:0px;
+       }
+
+#rodape {
+    background-color: #F5FFFA;
+    padding: 10px;
+    
+   }
+   #divBusca{
+  background-color:white;
+  border:solid 2px #B22222;
+  border-radius:10px;
+  width: 275px;
+  height:32px;
+}
+
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left:5px;
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:191px;
+}
+
+#btnBusca{
+  border:none;
+  float:left;
+  height:32px;
+  border-radius:0 7px 7px 0;
+  width: 84px;
+  font-weight:bold;
+  background:#B22222;
+}
+        </style>
+    </head>
+    <body>
+      <div id="cabecalho">
+        <table>
+          <tr>
+            <th>
+          <ul>
+            <li><img src="imagens/SPFC.png" alt="logo" width="100" height="100"></li>
+        
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="carrinho.html">Carrinho</a></li>
+          </ul>
+             </th>
+          <th>
+          <div id="divBusca">
+            <input type="text" id="txtBusca" placeholder="Buscar..."/>
+            <button id="btnBusca">Buscar</button>
+          </div>
+          </th>
+          </tr>
+        </table>
+        </div>
+        
+
+        <div id="itens"> </div>
+<div>Total: <span id="total"></span> </div>
+
+<script>
+ var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+ var i = 0;     // variável que irá percorrer as posições
+ var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+ 
+ for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+ {
+	 var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+	 if(prod != null) 
+	 {	
+		 // exibe os dados da lista dentro da div itens
+		 document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+		 document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+		 document.getElementById("itens").innerHTML += " ";
+		 document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+		 // calcula o total dos recheios
+		 valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+		 total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+	 }
+ } 
+ // exibe o total dos recheios
+ document.getElementById("total").innerHTML = total.toFixed(2); 
+</script>
+
+<button class="button" onclick=" localStorage.clear(); location.reload();"> Limpar carrinho </button>
+        
+    </body>
+</html>

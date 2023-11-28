@@ -1,0 +1,204 @@
+<html>
+<head>
+<title>Camisa Comemorativa Lucas</title>
+<style>
+table, th, td {
+  border-style: hidden;
+}
+
+html, body{margin: 0;
+           padding: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 40px 15px;
+  text-decoration: none;
+ 
+ 
+}
+
+li a:hover:not(.active) {
+  background-color: #FF0000;
+}
+
+#corpo {
+       background-color: #F5FFFA;
+       
+       padding: 5px;
+       
+       }
+#cabecalho {
+       background-color: #333;
+       
+       padding:0px;
+       }
+
+.produtos {background-color: #B22222;
+width: 500px;
+height: 500px;
+text-align: center;
+margin: 60px;
+margin-left: 50px;
+margin-right: 68px;
+margin-bottom: 20px;
+padding: 20px;
+border-radius: 10px;
+}
+
+.button {
+  background-color: black; 
+  color: white; 
+  border: 2px solid #000000;
+  padding: 10px 12px;
+}
+.button-remover {
+   background-color: #000000;
+   color: white;
+   border: 2px solid #000000;
+   padding: 10px 12px;
+}
+.button-remover:hover {
+   background-color: #f44336;
+  color: white;
+  border: 2px solid #f44336;
+  padding: 10px 12px;
+}
+.button:hover {
+  background-color: #f44336;
+  color: white;
+  border: 2px solid #f44336;
+  padding: 10px 12px;
+}
+.button-comprar {
+   background-color: #000000;
+   color: white;
+   border: 2px solid #000000;
+   padding: 10px 12px;
+}
+.button-comprar:hover {
+   background-color: #f44336;
+  color: white;
+  border: 2px solid #f44336;
+  padding: 10px 12px;
+}
+#divBusca{
+  background-color:white;
+  border:solid 2px #B22222;
+  border-radius:10px;
+  width: 275px;
+  height:32px;
+}
+
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left:5px;
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:191px;
+}
+
+#btnBusca{
+  border:none;
+  float:left;
+  height:32px;
+  border-radius:0 7px 7px 0;
+  width: 84px;
+  font-weight:bold;
+  background:#B22222;
+}
+</style>
+</head>
+
+<body>
+
+  <div id="cabecalho">
+    <table>
+      <tr>
+        <th>
+      <ul>
+        <li><img src="SPFC.png" alt="logo" width="100" height="100"></li>
+    
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="carrinho.html">Carrinho</a></li>
+      </ul>
+         </th>
+      <th>
+      <div id="divBusca">
+        <input type="text" id="txtBusca" placeholder="Buscar..."/>
+        <button id="btnBusca">Buscar</button>
+      </div>
+      </th>
+      </tr>
+    </table>
+    </div>
+    
+      
+      <div id="corpo">
+      <table>
+      
+      <tr>
+         <td><div class="produtos">
+       
+          <img src="imagens/moletomcomissao.jpg" alt="Moletom Comissão" width="400" height="450">
+      
+      <br>
+      
+          <h3>Moletom Comissão 2023<h3>
+           
+      </td></div>
+      <td>
+        <h1>Moletom Comissão Técnica  s/n Torcedor Adidas Masculina - Preto<br><br>R$280,00<h1>
+      </td>
+      </tr>
+      
+      
+      </table>
+      <table>
+      
+      <td><button class="button">P</button></td>
+      <td><button class="button">M</button></td>
+      <td><button class="button">G</button></td>
+      
+      
+      </table>
+      <br>
+      Quantidade: <input type="number" value="1" min="1" max="10" id="qtd1">
+	    <button class="button" id="adicionar1" id="produto1" onclick="AddCarrinho('MoletomComissao', document.getElementById('qtd1').value, '280.00', 7)"> Comprar </button>
+      <table>
+      <tr>
+      <th><p>10% de desconto no pix</p></th>
+      </tr>
+      
+      <tr>
+      <th><p> Ate 3x sem juros</p></th>
+      </tr>
+      </table>
+      <script>
+        function AddCarrinho(produto, qtd, valor, posicao)
+        {
+          localStorage.setItem("produto" + posicao, produto);
+          localStorage.setItem("qtd" + posicao, qtd);
+          valor = valor * qtd;
+          localStorage.setItem("valor" + posicao, valor);
+          alert("Produto adicionado ao carrinho!");
+        }
+      </script>
+
+</body>
+</html>
